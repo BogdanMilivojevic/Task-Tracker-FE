@@ -1,13 +1,510 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
+/* 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
+
+/* Primary color: #95BB72*/
+/* Secondary color: */
+/* Tertiary color:#fff */
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Rubik", sans-serif;
+  position: relative;
+}
+
+/* LOGIN COMPONENT */
+
+.login__container {
+  margin: auto;
+  max-width: 1400px;
+}
+
+.login__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #95bb72;
+}
+
+.login__navbar h1 {
+  color: #fff;
+}
+
+.navbar__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.login-btn {
+  font-size: 18px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.login-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.register-btn {
+  font-size: 18px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.register-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.login__grid {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.login__grid h1 {
+  font-size: 82px;
+  color: #95bb72;
+}
+
+.login__grid img {
+  max-width: 800px;
+}
+
+.login__footer {
+  margin-top: 80px;
+  border-top: 5px solid #95bb72;
+  padding-top: 20px;
+}
+
+.login__footer h1 {
+  font-size: 16px;
+}
+
+/* TASK COMPONENT */
+
+.task__container {
+  margin: auto;
+  max-width: 1400px;
+}
+
+.task__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #95bb72;
+}
+
+.task__navbar h1 {
+  font-size: 32px;
+  color: #fff;
+}
+
+.user__info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.user__name {
+  font-size: 28px;
+  color: #fff;
+}
+
+.logout-btn {
+  font-size: 18px;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.logout-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.task__grid {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 80px;
+  border: 5px solid #95bb72;
+  height: 500px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.task__box {
+  display: grid;
+  padding: 20px;
+  align-items: center;
+  grid-template-columns: 5fr 1fr;
+  justify-content: center;
+  gap: 20px;
+}
+
+.task {
+  font-size: 16px;
+  padding: 12px 24px;
+  background-color: #e5e5e5;
+}
+
+.remove-btn {
+  font-size: 16px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  background-color: #95bb72;
+  color: #fff;
+}
+
+.remove-btn:hover {
+  background-color: #a2c383;
+}
+
+.add-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 15%;
+  top: 92%;
+  font-size: 24px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  background-color: #95bb72;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background-color: #a2c383;
+}
+
+/* PopUp Features */
+.overlay {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+.login_popup {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #95bb72;
+  width: 500px;
+  height: 500px;
+  border: 10px solid #fff;
+}
+
+.login_popup h1 {
+  font-size: 32px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.login_form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  padding: 20px;
+}
+
+.email_label {
+  padding: 20px;
+  display: flex;
+  gap: 84px;
+  align-items: center;
+  justify-content: center;
+}
+
+.email_label input {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.email_label label {
+  font-size: 20px;
+  color: #fff;
+}
+
+.password_label {
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.password_label input {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.password_label label {
+  font-size: 20px;
+  color: #fff;
+}
+
+.form_login-btn {
+  border-radius: 12px;
+  font-size: 24px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: black;
+  cursor: pointer;
+}
+
+/* Register PopUp */
+.register_popup {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #95bb72;
+  width: 600px;
+  height: 600px;
+  border: 10px solid #fff;
+}
+
+.register_popup h1 {
+  font-size: 32px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.register_form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+}
+
+.register_email_label {
+  padding: 20px;
+  display: flex;
+  gap: 157px;
+  align-items: center;
+  justify-content: center;
+}
+
+.register_email_label label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.register_email_label input {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.register_password_label {
+  padding: 20px;
+  display: flex;
+  gap: 110px;
+  align-items: center;
+  justify-content: center;
+}
+
+.register_password_label label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.register_password_label input {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.password_confirm_label {
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.password_confirm_label label {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.password_confirm_label input {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.username_label {
+  padding: 20px;
+  display: flex;
+  gap: 107px;
+  align-items: center;
+  justify-content: center;
+}
+
+.username_label label {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.username_label input {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.form_login-btn {
+  border-radius: 12px;
+  font-size: 24px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.form_login-btn:hover {
+  background-color: #e5e5e5;
+}
+
+/* Task Popup */
+.task_form-container {
+  position: fixed;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #95bb72;
+  width: 1000px;
+  height: 280px;
+  border: 10px solid #fff;
+}
+
+.task_form {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+.task_form-task {
+  display: flex;
+  gap: 20px;
+}
+
+.task_form-task label {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.task_form-task input {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.task_form-date {
+  display: flex;
+  gap: 55px;
+}
+
+.task_form-date label {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.task_form-date input {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.task_form-time {
+  display: flex;
+  gap: 55px;
+}
+
+.task_form-time label {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.task_form-time input {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+.task_form-btn {
+  position: absolute;
+  right: -18%;
+  top: 43%;
+  border: 5px solid #fff;
+  border-radius: 12px;
+  font-size: 20px;
+  padding: 12px 24px;
+  cursor: pointer;
+  background-color: #95bb72;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.task_form-btn:hover {
+  background-color: #a2c383;
 }
